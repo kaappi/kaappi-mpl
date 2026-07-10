@@ -1,0 +1,28 @@
+;;; (mpl separate-sin-cos) — split a product into trig and non-trig parts.
+(define-library (mpl separate-sin-cos)
+  (export separate-sin-cos)
+  (import (except (scheme base) + - * / numerator denominator)
+          (mpl misc)
+          (mpl arithmetic))
+  (begin
+
+    (define (sin-or-cos? u)
+      (or (sin? u)
+          (cos? u)
+          (and (power? u)
+               (or (sin? (base u))
+                   (cos? (base u))))))
+
+    (define (separate-sin-cos u)
+      (cond ( (product? u)
+              (let loop ((r 1)
+                         (s 1)
+                         (operands (cdr u)))
+                (if (null? operands)
+                    (list r s)
+                    (let ((operand (car operands)))
+                      (if (sin-or-cos? operand)
+                          (loop r (* s operand) (cdr operands))
+                          (loop (* r operand) s (cdr operands)))))) )
+            ( (sin-or-cos? u) (list 1 u) )
+            ( else            (list u 1) )))))

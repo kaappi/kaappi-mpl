@@ -1,0 +1,4 @@
+name: kaappi-mpl
+version: 0.1.0
+kaappi-version: >=0.15.0
+source: https://github.com/kaappi/kaappi-mpl
