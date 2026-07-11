@@ -29,6 +29,8 @@ jobs:
 
       - name: Run tests
         run: /tmp/kaappi/zig-out/bin/kaappi --coverage-xml coverage.xml --lib-path lib tests/test-mpl.scm
+        env:
+          KAAPPI_HOME: /tmp/kaappi
 
       - name: Upload to Codecov
         if: github.event_name == 'push'
