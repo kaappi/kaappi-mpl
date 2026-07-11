@@ -47,6 +47,18 @@ Notable internals:
 - `(mpl util)` — replaces the handful of dharmalab helpers mpl used
   (`equal-to`, `any-are`), plus `while` and a rational-capable `mod`.
 
+## Documentation
+
+See the [docs/](docs/) directory:
+
+- [Getting Started](docs/getting-started.md) — importing, variables, arithmetic, infix parser
+- [Automatic Simplification](docs/simplification.md) — simplification rules, predicates, accessors
+- [Algebraic Operations](docs/algebra.md) — expansion, substitution, polynomials, GCD, rationals
+- [Trigonometry](docs/trigonometry.md) — symbolic trig, expand/contract, identities
+- [Calculus](docs/calculus.md) — symbolic differentiation
+- [Exponentials & Roots](docs/exponentials.md) — exp, log, sqrt, factorial
+- [API Reference](docs/reference.md) — complete procedure listing
+
 ## Running the tests
 
 ```bash
