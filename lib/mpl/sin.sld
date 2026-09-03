@@ -1,7 +1,7 @@
 ;;; (mpl sin) — symbolic sine with special-angle simplification.
 (define-library (mpl sin)
   (export sin)
-  (import (except (scheme base) + - * / numerator denominator sqrt)
+  (import (except (scheme base) + - * / numerator denominator)
           (rename (only (scheme inexact) sin) (sin rnrs:sin))
           (only (srfi 1) find)
           (mpl match)

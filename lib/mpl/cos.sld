@@ -1,7 +1,7 @@
 ;;; (mpl cos) — symbolic cosine with special-angle simplification.
 (define-library (mpl cos)
   (export cos)
-  (import (except (scheme base) + - * / numerator denominator sqrt)
+  (import (except (scheme base) + - * / numerator denominator)
           (rename (only (scheme inexact) cos) (cos rnrs:cos))
           (only (srfi 1) find)
           (mpl match)

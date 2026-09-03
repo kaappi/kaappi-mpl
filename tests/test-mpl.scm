@@ -5,7 +5,7 @@
 ;;;   MM — Computer Algebra and Symbolic Computation: Mathematical Methods
 ;;; and Mendelson's calculus text.
 
-(import (except (scheme base) + - * / numerator denominator quotient remainder sqrt)
+(import (except (scheme base) + - * / numerator denominator quotient remainder)
         (scheme write)
         (scheme process-context)
         (only (srfi 1) lset=)
