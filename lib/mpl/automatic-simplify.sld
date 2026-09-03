@@ -1,7 +1,7 @@
 ;;; (mpl automatic-simplify) — bottom-up automatic simplification.
 (define-library (mpl automatic-simplify)
   (export automatic-simplify)
-  (import (except (scheme base) + - * / numerator denominator sqrt)
+  (import (except (scheme base) + - * / numerator denominator)
           (mpl misc)
           (mpl sum-product-power)
           (mpl sub)
