@@ -17,20 +17,18 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install Kaappi
+      - name: Install Zig
+        uses: mlugg/setup-zig@v2
+        with:
+          version: 0.16.0
+
+      - name: Build Kaappi
         run: |
-          gh release download --repo kaappi/kaappi --pattern "kaappi-x86_64-linux" --output /tmp/kaappi
-          gh release download --repo kaappi/kaappi --pattern "kaappi-lib.tar.gz" --output /tmp/kaappi-lib.tar.gz
-          chmod +x /tmp/kaappi
-          mkdir -p /tmp/kaappi-home
-          tar xzf /tmp/kaappi-lib.tar.gz -C /tmp/kaappi-home
-        env:
-          GH_TOKEN: ${{ github.token }}
+          git clone --depth 1 https://github.com/kaappi/kaappi.git /tmp/kaappi
+          cd /tmp/kaappi && zig build
 
       - name: Run tests
-        run: /tmp/kaappi --coverage-xml coverage.xml --lib-path lib tests/test-mpl.scm
-        env:
-          KAAPPI_HOME: /tmp/kaappi-home
+        run: /tmp/kaappi/zig-out/bin/kaappi --coverage-xml coverage.xml --lib-path lib tests/test-mpl.scm
 
       - name: Upload to Codecov
         if: github.event_name == 'push'
